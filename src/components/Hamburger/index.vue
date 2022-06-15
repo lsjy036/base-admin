@@ -1,0 +1,47 @@
+<template>
+  <div @click="toggleClick">
+    <svg
+      :class="{'is-active':isActive}"
+      style="padding:0px 5px;"
+      t="1647675394048"
+      class="hamburger"
+      viewBox="0 0 1024 1024"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      p-id="2224"
+      width="64"
+      height="64"
+    >
+      <path
+        d="M867.1 141.17H156.08c-17.67 0-32 14.33-32 32s14.33 32 32 32H867.1c17.67 0 32-14.33 32-32s-14.33-32-32-32zM867.92 367.52H403.2c-17.67 0-32 14.33-32 32s14.33 32 32 32h464.73c17.67 0 32-14.33 32-32s-14.33-32-32.01-32zM867.92 573.87H403.2c-17.67 0-32 14.33-32 32s14.33 32 32 32h464.73c17.67 0 32-14.33 32-32s-14.33-32-32.01-32zM867.92 800.22H156.9c-17.67 0-32 14.33-32 32s14.33 32 32 32h711.02c17.67 0 32-14.33 32-32 0-17.68-14.32-32-32-32zM312.01 367.52v270.35L137.47 489.71z"
+        p-id="2225"
+      ></path>
+    </svg>
+  </div>
+</template>
+<script>
+export default {
+    methods:{
+        toggleClick(){
+            this.$store.dispatch('app/toggleSideBar')
+        }
+    },
+    computed:{
+      isActive(){
+        return this.$store.state.app.sidebar.isCollapse
+      }
+    }
+};
+</script>
+
+<style scoped lang='scss'>
+.hamburger {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
+.hamburger.is-active{
+    transform: rotate(180deg);
+}
+</style>
